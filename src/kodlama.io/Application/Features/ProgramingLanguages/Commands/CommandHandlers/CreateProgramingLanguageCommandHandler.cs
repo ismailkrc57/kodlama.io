@@ -12,9 +12,9 @@ public class
     CreateProgramingLanguageCommandHandler : IRequestHandler<CreateProgramingLanguageCommand,
         CreatedProgramingLanguageDto>
 {
-    private readonly IProgramingLanguageRepo _programingLanguageRepo;
     private readonly ProgramingLanguageBusinessRule _businessRule;
     private readonly IMapper _mapper;
+    private readonly IProgramingLanguageRepo _programingLanguageRepo;
 
     public CreateProgramingLanguageCommandHandler(IProgramingLanguageRepo programingLanguageRepo,
         ProgramingLanguageBusinessRule businessRule, IMapper mapper)
@@ -24,14 +24,14 @@ public class
         _mapper = mapper;
     }
 
-  
+
     public async Task<CreatedProgramingLanguageDto> Handle(CreateProgramingLanguageCommand request,
         CancellationToken cancellationToken)
     {
         await _businessRule.ProgramingLanguageCanNotBeDuplicatedWhenInserted(request.Name);
-        ProgramingLanguage mappedPl = _mapper.Map<ProgramingLanguage>(request);
-        ProgramingLanguage createdPl = await _programingLanguageRepo.AddAsync(mappedPl);
-        CreatedProgramingLanguageDto createdPlDto = _mapper.Map<CreatedProgramingLanguageDto>(createdPl);
+        var mappedPl = _mapper.Map<ProgramingLanguage>(request);
+        var createdPl = await _programingLanguageRepo.AddAsync(mappedPl);
+        var createdPlDto = _mapper.Map<CreatedProgramingLanguageDto>(createdPl);
         return createdPlDto;
     }
 }

@@ -4,8 +4,6 @@ namespace Domain.Entities;
 
 public class ProgramingLanguage : Entity
 {
-    public string Name { get; set; }
-
     public ProgramingLanguage()
     {
     }
@@ -16,4 +14,6 @@ public class ProgramingLanguage : Entity
         Id = id;
         Name = name;
     }
+
+    public string Name { get; set; }
 }

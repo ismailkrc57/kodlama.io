@@ -1,10 +1,5 @@
-﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿namespace Application.Features.ProgramingLanguages.Dto;
 
-namespace Application.Features.ProgramingLanguages.Dto;
-
-public class ProgramingLanguageListDto
+public class ProgramingLanguageListDto : ProgramingLanguageDto
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
 }

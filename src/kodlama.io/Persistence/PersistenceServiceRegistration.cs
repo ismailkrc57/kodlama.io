@@ -9,7 +9,8 @@ namespace Persistence;
 
 public static class PersistenceServiceRegistration
 {
-    public static IServiceCollection AddPersistenceServiceCollection(this IServiceCollection collection, IConfiguration configuration)
+    public static IServiceCollection AddPersistenceServiceCollection(this IServiceCollection collection,
+        IConfiguration configuration)
     {
         collection.AddDbContext<BaseDbContext>(options =>
         {

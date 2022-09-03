@@ -1,7 +1,5 @@
 ﻿namespace Application.Features.ProgramingLanguages.Dto;
 
-public class GetByIdProgramingLanguageDto
+public class GetByIdProgramingLanguageDto : ProgramingLanguageDto
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
 }
