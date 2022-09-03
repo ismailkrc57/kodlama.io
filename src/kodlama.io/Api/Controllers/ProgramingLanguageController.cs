@@ -41,8 +41,15 @@ public class ProgramingLanguageController : BaseController
         return Created("", result);
     }
 
-    [HttpPut(nameof(Update))]
-    public async Task<IActionResult> Update([FromBody] UpdateProgramingLanguageCommand command)
+    [HttpPut(nameof(UpdatePut))]
+    public async Task<IActionResult> UpdatePut([FromBody] UpdateProgramingLanguageCommand command)
+    {
+        var result = await Mediator!.Send(command);
+        return Created("", result);
+    }
+
+    [HttpPatch(nameof(UpdatePatch))]
+    public async Task<IActionResult> UpdatePatch([FromBody] UpdateProgramingLanguageCommand command)
     {
         var result = await Mediator!.Send(command);
         return Created("", result);
