@@ -23,7 +23,8 @@ public class ProgramingLanguageController : BaseController
     public async Task<IActionResult> GetById([FromRoute] GetByIdProgramingLanguageQuery query)
     {
         var result = await Mediator!.Send(query);
-        return Created("", result);
+        return Ok(result);
+        
     }
 
     [HttpGet(nameof(GetList))]
@@ -31,14 +32,14 @@ public class ProgramingLanguageController : BaseController
     {
         GetListProgramingLanguageQuery getListProgramingLanguageQuery = new() {PageRequest = request};
         var result = await Mediator!.Send(getListProgramingLanguageQuery);
-        return Created("", result);
+        return Ok( result);
     }
 
     [HttpDelete("Delete/{Id}")]
     public async Task<IActionResult> Delete([FromRoute] DeleteProgramingLanguageCommand command)
     {
         var result = await Mediator!.Send(command);
-        return Created("", result);
+        return Ok(result);
     }
 
     [HttpPut(nameof(UpdatePut))]
