@@ -39,6 +39,61 @@ namespace Persistence.Migrations
 
                     b.ToTable("ProgramingLanguages", (string)null);
                 });
+
+            modelBuilder.Entity("Domain.Entities.Technology", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Name");
+
+                    b.Property<int>("ProgramingLanguageId")
+                        .HasColumnType("int")
+                        .HasColumnName("ProgramingLanguageId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProgramingLanguageId");
+
+                    b.ToTable("Technologies", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Spring",
+                            ProgramingLanguageId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Jsp",
+                            ProgramingLanguageId = 1
+                        });
+                });
+
+            modelBuilder.Entity("Domain.Entities.Technology", b =>
+                {
+                    b.HasOne("Domain.Entities.ProgramingLanguage", "ProgramingLanguage")
+                        .WithMany("Technologies")
+                        .HasForeignKey("ProgramingLanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProgramingLanguage");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ProgramingLanguage", b =>
+                {
+                    b.Navigation("Technologies");
+                });
 #pragma warning restore 612, 618
         }
     }
