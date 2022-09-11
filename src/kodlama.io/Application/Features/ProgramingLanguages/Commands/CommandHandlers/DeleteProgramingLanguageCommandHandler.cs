@@ -29,7 +29,7 @@ public class
     {
         var programingLanguage = await _programingLanguageRepo.GetAsync(pl => pl.Id == request.Id);
         _businessRule.ProgramingLanguageShouldBeExistWhenDeleted(programingLanguage);
-        var deletedProgramingLanguage = await _programingLanguageRepo.DeleteAsync(programingLanguage);
+        var deletedProgramingLanguage = await _programingLanguageRepo.DeleteAsync(programingLanguage!);
         var deletedProgramingLanguageDto =
             _mapper.Map<DeletedProgramingLanguageDto>(deletedProgramingLanguage);
         return deletedProgramingLanguageDto;
