@@ -17,6 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddPersistenceServiceCollection(builder.Configuration);
 // Application Service Registration
 builder.Services.AddApplicationServiceCollection();
+builder.Services.AddSecurityServices();
 
 
 var app = builder.Build();

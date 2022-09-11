@@ -39,4 +39,8 @@
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.2-mauipre.1.22102.15" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Features\Auth\Models" />
+    </ItemGroup>
+
 </Project>

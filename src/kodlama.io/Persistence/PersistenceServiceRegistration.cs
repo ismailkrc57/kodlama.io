@@ -1,4 +1,5 @@
 ﻿using Application.Services.Repositories;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +19,8 @@ public static class PersistenceServiceRegistration
         });
         collection.AddScoped<IProgramingLanguageRepo, ProgramingLanguageRepo>();
         collection.AddScoped<ITechnologyRepo, TechnologyRepo>();
+        collection.AddScoped<IUserRepo, UserRepo>();
+        collection.AddScoped<IGithubAccountRepo, GithubAccountRepo>();
         return collection;
     }
 }
