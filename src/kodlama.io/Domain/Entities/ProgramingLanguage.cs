@@ -16,4 +16,5 @@ public class ProgramingLanguage : Entity
     }
 
     public string Name { get; set; }
+    public ICollection<Technology> Technologies { get; set; }
 }

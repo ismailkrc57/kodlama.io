@@ -31,7 +31,7 @@ public class
         _businessRule.ProgramingLanguageShouldBeExistWhenUpdated(programingLanguage);
         await _businessRule.ProgramingLanguageCanNotBeDuplicatedWhenUpdated(request.Name, request.Id);
         _mapper.Map(request, programingLanguage);
-        var updatedProgramingLanguage = await _programingLanguageRepo.UpdateAsync(programingLanguage);
+        var updatedProgramingLanguage = await _programingLanguageRepo.UpdateAsync(programingLanguage!);
         var updatedProgramingLanguageDto =
             _mapper.Map<UpdatedProgramingLanguageDto>(updatedProgramingLanguage);
         return updatedProgramingLanguageDto;

@@ -17,6 +17,7 @@ public static class PersistenceServiceRegistration
             options.UseSqlServer(configuration.GetConnectionString("KodlamaIoConnectionString") ?? string.Empty);
         });
         collection.AddScoped<IProgramingLanguageRepo, ProgramingLanguageRepo>();
+        collection.AddScoped<ITechnologyRepo, TechnologyRepo>();
         return collection;
     }
 }
